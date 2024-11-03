@@ -108,6 +108,7 @@ namespace MirageFeathersRPC.Managers
         {
             _cancellationToken?.Dispose();
 
+            _client?.GetActivityManager().ClearActivity(null);
             _client?.Dispose();
             _client = null;
 
