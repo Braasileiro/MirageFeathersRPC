@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IntDir>$(SolutionDir).build\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir).bin\$(Configuration)\</OutDir>
-	<PublishDir>$(SolutionDir).publish\</PublishDir>
+    <PublishDir>$(SolutionDir).publish\</PublishDir>
     <MSBuildProjectExtensionsPath>$(IntDir)</MSBuildProjectExtensionsPath>
     <IntermediateOutputPath>$(IntDir)</IntermediateOutputPath>
     <OutputPath>$(OutDir)</OutputPath>
