@@ -7,21 +7,21 @@ namespace MirageFeathersRPC.Patches
 	{
 		[HarmonyPatch(typeof(MainMenu), "Awake")]
 		[HarmonyPostfix]
-		static void MainMenu_Awake()
+		static void OnMainMenu()
 		{
 			UnityDiscordManager.UpdateActivity(ActivityBuilder.MainMenu);
 		}
 
 		[HarmonyPatch(typeof(GalleryMenu), "Awake")]
 		[HarmonyPostfix]
-		static void GalleryMenu_Awake()
+		static void OnGalleryMenu()
 		{
 			UnityDiscordManager.UpdateActivity(ActivityBuilder.GalleryMenu);
 		}
 
 		[HarmonyPatch(typeof(GalleryUiControl), "CloseGallery")]
 		[HarmonyPostfix]
-		static void GalleryUiControl_CloseGallery()
+		static void OnCloseGallery()
 		{
 			UnityDiscordManager.UpdateActivity(ActivityBuilder.MainMenu);
 		}
@@ -29,9 +29,16 @@ namespace MirageFeathersRPC.Patches
 		[HarmonyPatch(typeof(StageManager), "Awake")]
 		[HarmonyPatch(typeof(StageManager), "StageChange")]
 		[HarmonyPostfix]
-		static void StageManager_Awake_StageChange(StageManager __instance)
+		static void OnStageChange(StageManager __instance)
 		{
 			UnityDiscordManager.UpdateActivity(ActivityBuilder.Build(__instance));
+		}
+
+		[HarmonyPatch(typeof(GameplayManager), "PrologueEnd")]
+		[HarmonyPostfix]
+		static void OnPrologueEnd(GameplayManager __instance)
+		{
+			UnityDiscordManager.UpdateActivity(ActivityBuilder.Build(__instance.stageManager, isPrologueEnd: true));
 		}
 	}
 }
