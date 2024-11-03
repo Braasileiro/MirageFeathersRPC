@@ -49,14 +49,14 @@ namespace MirageFeathersRPC.Managers
         {
 			if (!stageManager.tutorial)
             {
-                if (!stageManager.rogueMode && stageManager.startStage == 0)
+                if (stageManager.realStage > 0 || stageManager.rogueMode)
                 {
-					return "Prologue";
-				}
+                    return $"STAGE {stageManager.realStage}";
+                }
                 else
                 {
-					return $"STAGE {stageManager.realStage}";
-				}
+                    return "Prologue";
+                }
 			}
 
             return null;
