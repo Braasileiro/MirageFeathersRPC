@@ -32,26 +32,30 @@ namespace MirageFeathersRPC.Managers
             Assets = Default.Assets
         };
 
-        public static Activity Build(StageManager stageManager)
+        public static Activity Build(StageManager stageManager, bool isPrologueEnd = false)
         {
             Activity activity = new()
             {
-                State = GetState(stageManager),
+                State = GetState(stageManager, isPrologueEnd),
                 Details = GetDetails(stageManager),
                 Timestamps = Default.Timestamps,
-                Assets = GetAssets(stageManager)
+                Assets = GetAssets(stageManager, isPrologueEnd)
             };
 
             return activity;
         }
 
-        private static string GetState(StageManager stageManager)
+        private static string GetState(StageManager stageManager, bool isPrologueEnd)
         {
 			if (!stageManager.tutorial)
             {
                 if (stageManager.realStage > 0 || stageManager.rogueMode)
                 {
-                    return $"STAGE {stageManager.realStage}";
+                    return $"STAGE {stageManager.realStage:000}";
+                }
+                else if (isPrologueEnd)
+                {
+                    return "STAGE 001";
                 }
                 else
                 {
@@ -78,14 +82,17 @@ namespace MirageFeathersRPC.Managers
             }
         }
 
-        private static ActivityAssets GetAssets(StageManager stageManager)
+        private static ActivityAssets GetAssets(StageManager stageManager, bool isPrologueEnd)
         {
             ActivityAssets assets = Default.Assets;
 
             if (!stageManager.tutorial)
             {
-                assets.SmallImage = "miroita";
-                assets.SmallText = $"Playing • {GetDifficulty(stageManager.gamePlaySettings.difficulty)}";
+                if (isPrologueEnd || stageManager.realStage > 0 || stageManager.rogueMode)
+                {
+                    assets.SmallImage = "miroita";
+                    assets.SmallText = $"Playing • {GetDifficulty(stageManager.gamePlaySettings.difficulty)}";
+                }
             }
 
             return assets;
