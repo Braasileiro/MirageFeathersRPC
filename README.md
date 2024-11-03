@@ -24,3 +24,8 @@ If you wish, you can disable the BepInEx console. Simply open the file ***`BepIn
 
 # Thanks
 [BepInEx](https://github.com/BepInEx/BepInEx)
+
+# Showcase
+<p align="center">
+  <img src="assets/preview.png">
+</p>
