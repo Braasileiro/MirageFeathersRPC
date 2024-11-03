@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MirageFeathersRPC", "MirageFeathersRPC\MirageFeathersRPC.csproj", "{8489C5FB-9281-4643-AE5A-ADEA1A9DC584}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0B3CEDEA-A06C-40A7-8FCD-CAE6D93F6121}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8489C5FB-9281-4643-AE5A-ADEA1A9DC584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8489C5FB-9281-4643-AE5A-ADEA1A9DC584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8489C5FB-9281-4643-AE5A-ADEA1A9DC584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8489C5FB-9281-4643-AE5A-ADEA1A9DC584}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9325CC9A-E73A-4B72-A28D-24473CB7FC80}
+	EndGlobalSection
+EndGlobal
